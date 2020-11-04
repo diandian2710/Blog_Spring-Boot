@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wang.mapper.BookMapper">
+<!--    一对多处理-->
+    <select id="findAllByCategory" resultMap="BookCategory" resultType="Book">
+        select b.id bid, b.cover bcover,
+               b.title btitle, b.author bauthor, b.date bdate,
+               b.press bpress, b.abs babs, b.cid bcid, c.id cid,
+               c.name cname from book b, category c where b.cid=c.id and c.id = #{category.id};
+    </select>
+    <resultMap id="BookCategory" type="Book">
+        <result property="id" column="bid"/>
+        <result property="cover" column="bcover"/>
+        <result property="title" column="btitle"/>
+        <result property="author" column="bauthor"/>
+        <result property="date" column="bdate"/>
+        <result property="press" column="bpress"/>
+        <result property="abs" column="babs"/>
+        <result property="cid" column="bcid"/>
+        <association property="category"  javaType="Category">
+            <result property="id" column="cid"/>
+            <result property="name" column="cname"/>
+        </association>
+    </resultMap>
+
+    <select id="findAll" resultType="Book" resultMap="BookCategory">
+        select b.id bid, b.cover bcover,
+               b.title btitle, b.author bauthor, b.date bdate,
+               b.press bpress, b.abs babs, b.cid bcid, c.id cid,
+               c.name cname from book b, category c where b.cid=c.id  order by b.id desc;
+    </select>
+
+    <update id="save" parameterType="Book">
+        <choose>
+            <when test="id!=null">
+                update book set cover=#{cover}, title=#{title}, author=#{author}, date=#{date}, press=#{press}, abs=#{abs},cid=#{cid} where id=#{id};
+            </when>
+            <otherwise>
+                insert into book(cover, title, author, date, press, abs, cid) values (#{cover}, #{title},#{author}, #{date}, #{press}, #{abs},#{cid});
+            </otherwise>
+        </choose>
+    </update>
+
+    <update id="deleteById" parameterType="_int">
+        delete from book where id=#{id};
+    </update>
+
+    <select id="findAllByTitleLikeOrAuthorLike" resultType="Book">
+        <bind name="authorPattern" value="'%'+author+'%'"/>
+        <bind name="titlePattern" value="'%'+title+'%'"/>
+        select * from white_jotter.book
+        <where>
+            <if test="title != null">
+                title like #{titlePattern}
+            </if>
+            <if test="author !=null">
+                or author like #{authorPattern};
+            </if>
+        </where>
+    </select>
+
+
+</mapper>
