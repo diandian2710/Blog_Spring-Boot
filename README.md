@@ -30,24 +30,21 @@ Including dashboard, content management, user and permission management, etc.
 # Architecture Diagram
 
 - **Application Architecture**
-
-![应用架构](https://img-blog.csdnimg.cn/20200524211402855.JPG)
-
+![App_Arc](_v_images/20201106123843524_704915436.png)
 - **Technology Architecture**
-
-![技术架构](https://img-blog.csdnimg.cn/20200524211507112.JPG)
+![Tec_Arc](_v_images/20201106123909768_600040565.png)
 
 # Main Technology Stack
 
 ## Front-End
 
-1.Vue.js  
-2.ElementUI  
-3.axios   
+1.Vue.js
+2.ElementUI
+3.axios
 
 ## Back-End
 
-1.Spring Boot  
+1.Spring Boot
 2.Apache Shiro
 3.Apache Log4j2
 4.Spring MyBatis
@@ -63,14 +60,12 @@ Including dashboard, content management, user and permission management, etc.
 # Update
 
 ## 2020
-12-01 Realize function-level authority control
-11-30 Use the vue-elment-admin project to improve the background interface design
-11-17 Refactored the project, completed the establishment of the basic background interface, realized loading the menu by role, and cancelled the front desk access restriction
-04-27 Use the front-end interceptor, migrate the database to mysql 8.0.15, and initialize the background management page
-04-13 Complete the picture upload function
-04-11 Complete the book classification function
-04-08 Complete the book paging function
-04-06 Complete the book query function
-04-05 Complete the book modification function
-04-04 Complete the book deletion function
-04-03 Complete the new functions of the book
+11-2 Refactored the project, completed the establishment of the basic background interface, realized loading the menu by role, and cancelled the front desk access restriction
+10-27 Use the front-end interceptor, migrate the database to mysql 8.0.15, and initialize the background management page
+10-13 Complete the picture upload function
+10-11 Complete the book classification function
+10-08 Complete the book paging function
+10-06 Complete the book query function
+10-05 Complete the book modification function
+10-04 Complete the book deletion function
+10-03 Complete the new functions of the book

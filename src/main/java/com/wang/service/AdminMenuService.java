@@ -65,20 +65,7 @@ public class AdminMenuService {
      * 遍历菜单项，根据每一项的 id 查询该项出所有的子项，并放进 children 属性
      * 剔除掉所有子项，只保留第一层的父项。比如 c 是 b 的子项，b 是 a 的子项，我们最后只要保留 a 就行，因为 a 包含了 b 和 c
      */
-//    public void handleMenus(List<AdminMenu> menus) {
-//        for (AdminMenu menu : menus) {
-//            List<AdminMenu> children = getAllByParentId(menu.getId());
-//            menu.setChildren(children);
-//        }
-//
-//        Iterator<AdminMenu> iterator = menus.iterator();
-//        while (iterator.hasNext()) {
-//            AdminMenu menu = iterator.next();
-//            if (menu.getParentId() != 0) {
-//                iterator.remove();
-//            }
-//        }
-//    }
+
     public void handleMenus(List<AdminMenu> menus) {
         menus.forEach(m -> {
             List<AdminMenu> children = getAllByParentId(m.getId());

@@ -40,7 +40,6 @@ public class URLPathMatchingFilter extends PathMatchingFilter {
         }
 
         String requestAPI = getPathWithinApplication(request);
-
         Subject subject = SecurityUtils.getSubject();
 
         if (!subject.isAuthenticated()) {
