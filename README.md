@@ -17,7 +17,6 @@ front-end: [front-end URL:](https://github.com/diandian2710/Library_Vue)
 
 Provide book information display function
 
-![Library](_v_images/20201104215631992_1675479136.png)
 
 
 
@@ -30,7 +29,7 @@ Including dashboard, content management, user and permission management, etc.
 # Architecture Diagram
 
 - **Application Architecture**
-![App_Arc](_v_images/20201106123843524_704915436.png)
+ ![App_Arc](_v_images/20201106212105469_1538190509.png)
 - **Technology Architecture**
 ![Tec_Arc](_v_images/20201106123909768_600040565.png)
 
