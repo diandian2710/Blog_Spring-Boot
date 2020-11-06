@@ -39,13 +39,13 @@ Including dashboard, content management, user and permission management, etc.
 ## Front-End
 
 1.Vue.js
-2.ElementUI
+2.ElementUI  
 3.axios
 
 ## Back-End
 
-1.Spring Boot
-2.Apache Shiro
+1.Spring Boot.  
+2.Apache Shiro. 
 3.Apache Log4j2
 4.Spring MyBatis
 5.Spring Data Redis
