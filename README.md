@@ -1,9 +1,9 @@
 This is a simple front-end and back-end separation project, mainly developed using Vue.js + SpringBoot technology stack.
 
 
-back-end: [back-end URL:](https://github.com/diandian2710/Library_Spring-Boot)
+[Back-end](https://github.com/diandian2710/Library_Spring-Boot)
 
-front-end: [front-end URL:](https://github.com/diandian2710/Library_Vue)
+[Front-end](https://github.com/diandian2710/Library_Vue)
 
 
 
@@ -29,30 +29,30 @@ Including dashboard, content management, user and permission management, etc.
 # Architecture Diagram
 
 - **Application Architecture**
- ![App_Arc](_v_images/20201106212105469_1538190509.png)
+![App_Arc](https://raw.githubusercontent.com/diandian2710/markdown-photos/main/Blog/20201106212105469_1538190509.png)
 - **Technology Architecture**
-![Tec_Arc](_v_images/20201106123909768_600040565.png)
+![Tec_Arc](https://raw.githubusercontent.com/diandian2710/markdown-photos/main/Blog/20201106123909768_600040565.png)
 
 # Main Technology Stack
 
 ## Front-End
 
-1.Vue.js. 
-2.ElementUI.     
-3.axios.   
+1.Vue.js  
+2.ElementUI  
+3.axios  
 
 ## Back-End
 
 1.Spring Boot.  
-2.Apache Shiro. 
-3.Apache Log4j2. 
-4.Spring MyBatis. 
-5.Spring Data Redis. 
+2.Apache Shiro.  
+3.Apache Log4j2.  
+4.Spring MyBatis.  
+5.Spring Data Redis.  
 
 ## Database
 
 1.MySQL  
-2.Redis
+2.Redis  
 
 
 
