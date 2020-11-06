@@ -41,16 +41,4 @@ public class MyMvcConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/api/file/**").addResourceLocations("file:" + "/Users/xihengwang/Documents/My_Tutorial/workspace/img/");
     }
 
-//    @Bean
-//    public LoginInterceptor loginInterceptor(){
-//        return new LoginInterceptor();
-//    }
-//
-//    @Override
-//    public void addInterceptors(InterceptorRegistry registry) {
-//        registry.addInterceptor(loginInterceptor())
-//                .addPathPatterns("/**")
-//                .excludePathPatterns("/index.html")
-//                .excludePathPatterns("/api/login");
-//    }
 }

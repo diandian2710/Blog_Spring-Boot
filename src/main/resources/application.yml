@@ -32,9 +32,6 @@ spring:
 
 
 
-
-
-
 mybatis:
   type-aliases-package: com.wang.pojo
   mapper-locations: classpath:mybatis/mapper/*.xml
