@@ -60,7 +60,7 @@ Including dashboard, content management, user and permission management, etc.
 # Update
 
 ## 2020
-11-2 Refactored the project, completed the establishment of the basic background interface, realized loading the menu by role, and cancelled the front desk access restriction 
+11-2 Refactored the project, completed the establishment of the basic background interface, realized loading the menu by role, and cancelled the front desk access restriction  
 10-27 Use the front-end interceptor, migrate the database to mysql 8.0.15, and initialize the background management page 
 10-13 Complete the picture upload function 
 10-11 Complete the book classification function 
