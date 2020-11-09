@@ -12,4 +12,5 @@ import java.util.List;
 public interface AdminRoleMapper {
     AdminRole findById(@Param("id") int id);
     List<AdminRole> findAllById(List<Integer> rids);
+    List<AdminRole> findAll();
 }

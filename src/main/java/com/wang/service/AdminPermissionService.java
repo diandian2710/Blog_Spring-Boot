@@ -24,6 +24,8 @@ public class AdminPermissionService {
     AdminRolePermissionMapper adminRolePermissionMapper;
     @Autowired
     AdminPermissionMapper adminPermissionMapper;
+    @Autowired
+    AdminRolePermissionService adminRolePermissionService;
 
     public Set<String> listPermissionURLsByUser(String username){
         List<Integer> rids = adminRoleService.listRolesByUser(username)
@@ -45,6 +47,12 @@ public class AdminPermissionService {
             }
         }
         return false;
+    }
+
+    public List<AdminPermission> listPermissionByRoleId(int rid){
+        List<Integer> pids = adminRolePermissionService.findAllByRid(rid)
+                .stream().map(AdminRolePermission::getPid).collect(Collectors.toList());
+        return adminPermissionMapper.findById(pids);
     }
 
 

@@ -7,4 +7,14 @@
         select * from white_jotter.admin_user_role where uid=#{uid};
     </select>
 
+    <delete id="deleteAllByUid" parameterType="_int">
+        delete from admin_user_role where uid=#{uid};
+    </delete>
+
+    <insert id="saveAll" parameterType="java.util.List" >
+        insert into admin_user_role(uid, rid) values
+        <foreach collection="list" item="adminUserRole" index="index" separator=",">
+            (#{adminUserRole.uid},#{adminUserRole.rid})
+        </foreach>
+    </insert>
 </mapper>

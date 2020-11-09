@@ -17,4 +17,7 @@
             #{id}
         </foreach>
     </select>
+    <select id="findAll" resultType="AdminRole">
+        select * from white_jotter.admin_role;
+    </select>
 </mapper>

@@ -12,5 +12,6 @@ import java.util.List;
 public interface AdminUserRoleMapper {
     List<AdminUserRole> findAllByUid(@Param("uid") int uid);
     void deleteAllByUid(@Param("uid") int uid);
+    int saveAll(List<AdminUserRole> urs);
 
 }

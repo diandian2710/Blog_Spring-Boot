@@ -2,6 +2,8 @@ package com.wang.controller;
 
 import com.wang.pojo.AdminMenu;
 import com.wang.pojo.User;
+import com.wang.result.Result;
+import com.wang.result.ResultFactory;
 import com.wang.service.AdminMenuService;
 import com.wang.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +20,8 @@ public class MenuController {
     UserService userService;
 
     @GetMapping("/api/menu")
-    public List<AdminMenu> menu(){
-        return adminMenuService.getMenuByCurrentUser();
+    public Result menu(){
+        return ResultFactory.buildSuccessResult(adminMenuService.getMenuByCurrentUser());
     }
 
 }

@@ -17,4 +17,6 @@ public interface UserMapper {
     int addUser(User user);
 
     List<User> findAll();
+
+    int save(User user);
 }

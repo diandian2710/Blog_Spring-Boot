@@ -11,4 +11,8 @@
             #{rid}
         </foreach>
     </select>
+
+    <select id="findAllByRid" resultType="AdminRolePermission">
+        select * from admin_role_permission where rid = #{rid};
+    </select>
 </mapper>

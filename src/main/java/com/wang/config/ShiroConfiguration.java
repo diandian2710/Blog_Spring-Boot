@@ -24,7 +24,6 @@ public class ShiroConfiguration {
     public static LifecycleBeanPostProcessor getLifecycleBeanProcessor() {
         return new LifecycleBeanPostProcessor();
     }
-
     @Bean
     public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager) {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
@@ -38,6 +37,7 @@ public class ShiroConfiguration {
 
         // 对管理接口的访问启用自定义拦截（url 规则），即执行 URLPathMatchingFilter 中定义的过滤方法
         filterChainDefinitionMap.put("/api/admin/**", "url");
+//        filterChainDefinitionMap.put("/api/admin/**", "authc");
         // 启用自定义过滤器
         shiroFilterFactoryBean.setFilters(customizedFilter);
         filterChainDefinitionMap.put("/api/authentication", "authc");
