@@ -12,5 +12,6 @@ import java.util.List;
 public interface AdminRoleMenuMapper {
     List<AdminRoleMenu> findAllByRid(@Param("rid") int rid);
     List<AdminRoleMenu> findAllByRids(List<Integer> rids);
-    void deleteAllByRid(int rid);
+    void deleteAllByRid(@Param("rid") int rid);
+    int saveAll(List<AdminRoleMenu> rms);
 }

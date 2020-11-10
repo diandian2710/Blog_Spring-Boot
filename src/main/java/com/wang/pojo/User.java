@@ -25,12 +25,13 @@ public class User {
     private String name;
     private String phone;
 
-    @Email
+    @Email(message = "please type right email address")
     private String email;
-    private boolean enable;
+    private boolean enabled;
 
     @Transient
     private List<AdminRole> roles;
+
 
 
 }

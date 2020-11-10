@@ -15,4 +15,15 @@
             #{rid}
         </foreach>
     </select>
+
+    <insert id="saveAll" parameterType="java.util.List" >
+        insert into admin_role_menu(mid, rid) values
+        <foreach collection="list" item="adminRoleMenu" index="index" separator=",">
+            (#{adminRoleMenu.mid},#{adminRoleMenu.rid})
+        </foreach>
+    </insert>
+
+    <delete id="deleteAllByRid" parameterType="_int">
+        delete from admin_role_menu where rid = #{rid};
+    </delete>
 </mapper>

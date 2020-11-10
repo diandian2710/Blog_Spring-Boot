@@ -15,4 +15,20 @@
     <select id="findAllByRid" resultType="AdminRolePermission">
         select * from admin_role_permission where rid = #{rid};
     </select>
+
+    <select id="findAll" resultType="AdminRolePermission">
+        select * from admin_role_permission;
+    </select>
+
+    <delete id="deleteAllByRid" parameterType="_int">
+        delete from admin_role_permission where rid = #{rid};
+    </delete>
+
+    <insert id="saveAll" parameterType="java.util.List" >
+        insert into admin_role_permission(rid,pid) values
+        <foreach collection="list" item="adminRolePermission" index="index" separator=",">
+            (#{adminRolePermission.rid},#{adminRolePermission.pid})
+        </foreach>
+    </insert>
+
 </mapper>

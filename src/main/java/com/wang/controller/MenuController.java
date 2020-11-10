@@ -24,4 +24,9 @@ public class MenuController {
         return ResultFactory.buildSuccessResult(adminMenuService.getMenuByCurrentUser());
     }
 
+    @GetMapping("/api/admin/role/menu")
+    public Result listAllMenus(){
+        return ResultFactory.buildSuccessResult(adminMenuService.getMenusByRoleId(1));
+    }
+
 }

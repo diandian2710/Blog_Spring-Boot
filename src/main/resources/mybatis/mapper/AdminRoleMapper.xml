@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wang.mapper.AdminRoleMapper">
-    <select id="findById" parameterType="_int">
+    <select id="findById" parameterType="_int" resultType="AdminRole">
         select *
         from admin_role
         where id = #{id};
@@ -20,4 +20,18 @@
     <select id="findAll" resultType="AdminRole">
         select * from white_jotter.admin_role;
     </select>
+    <update id="save" parameterType="AdminRole">
+        <choose>
+            <when test="id!=null" >
+                update admin_role set enabled=#{enabled} where id=#{id}
+            </when>
+            <otherwise>
+                insert into admin_role(name, name_zh, enabled) values(#{name}, #{nameZh}, #{enabled})
+            </otherwise>
+        </choose>
+    </update>
+
+
+
+
 </mapper>

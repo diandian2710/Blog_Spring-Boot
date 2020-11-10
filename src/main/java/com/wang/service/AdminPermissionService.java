@@ -9,6 +9,7 @@ import com.wang.pojo.AdminRolePermission;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -50,10 +51,20 @@ public class AdminPermissionService {
     }
 
     public List<AdminPermission> listPermissionByRoleId(int rid){
-        List<Integer> pids = adminRolePermissionService.findAllByRid(rid)
-                .stream().map(AdminRolePermission::getPid).collect(Collectors.toList());
-        return adminPermissionMapper.findById(pids);
+        ArrayList<AdminPermission> nullList = new ArrayList<>();
+        List<Integer> rids = adminRolePermissionService.findAll()
+                .stream().map(AdminRolePermission::getRid).collect(Collectors.toList());
+        if (rids.contains(rid)){
+            List<Integer> pids = adminRolePermissionService.findAllByRid(rid)
+                    .stream().map(AdminRolePermission::getPid).collect(Collectors.toList());
+            return adminPermissionMapper.findById(pids);
+        }else {
+            return nullList;
+        }
     }
+
+    public List<AdminPermission> list() {return adminPermissionMapper.findAll();}
+
 
 
 }

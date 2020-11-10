@@ -4,12 +4,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wang.mapper.UserMapper">
     <select id="findByUsername" parameterType="String" resultType="User">
-        select * from white_jotter.user
-        <where>
-            <if test="username != null">
-                username = #{username};
-            </if>
-        </where>
+        select * from white_jotter.user where username=#{username}
+<!--        <where>-->
+<!--            <if test="username != null">-->
+<!--                username = #{username};-->
+<!--            </if>-->
+<!--        </where>-->
     </select>
 
     <select id="getByUsernameAndPassword" resultType="User">

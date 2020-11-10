@@ -42,5 +42,19 @@ public class AdminRoleService {
         return roles;
     }
 
+    public AdminRole updateRoleStatus(AdminRole role){
+        AdminRole roleInDB = adminRoleMapper.findById(role.getId());
+        roleInDB.setEnabled(role.isEnabled());
+        int update = adminRoleMapper.save(roleInDB);
+        if (update != 0){
+            return adminRoleMapper.findById(roleInDB.getId());
+        }else {
+            return null;
+        }
+    }
+    public void addOrUpdate(AdminRole adminRole){
+        adminRoleMapper.save(adminRole);
+    }
+
 
 }

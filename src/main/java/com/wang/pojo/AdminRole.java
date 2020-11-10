@@ -14,6 +14,8 @@ public class AdminRole {
     private int id;
     private String name;
     private String nameZh;
+    private boolean enabled;
+
 
     @Transient
     private List<AdminPermission> perms;
