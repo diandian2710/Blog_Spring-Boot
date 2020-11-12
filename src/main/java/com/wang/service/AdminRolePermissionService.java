@@ -25,15 +25,24 @@ public class AdminRolePermissionService {
 
     @Transactional
     public void savePermChanges(int rid, List<AdminPermission> perms){
+        System.out.println("the perms========+++++++++"+perms);
         adminRolePermissionMapper.deleteAllByRid(rid);
         ArrayList<AdminRolePermission> rps = new ArrayList<>();
-        perms.forEach(p->{
-            AdminRolePermission rp = new AdminRolePermission();
-            rp.setRid(rid);
-            rp.setPid(p.getId());
-            rps.add(rp);
-        });
-        adminRolePermissionMapper.saveAll(rps);
+        if (!perms.isEmpty()){
+            perms.forEach(p->{
+                AdminRolePermission rp = new AdminRolePermission();
+                rp.setRid(rid);
+                rp.setPid(p.getId());
+                rps.add(rp);
+            });
+            adminRolePermissionMapper.saveAll(rps);
+        }
+//        perms.forEach(p->{
+//            AdminRolePermission rp = new AdminRolePermission();
+//            rp.setRid(rid);
+//            rp.setPid(p.getId());
+//            adminRolePermissionMapper.save(rp);
+//        });
     }
 
 }

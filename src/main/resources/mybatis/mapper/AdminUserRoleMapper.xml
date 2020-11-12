@@ -17,4 +17,5 @@
             (#{adminUserRole.uid},#{adminUserRole.rid})
         </foreach>
     </insert>
+
 </mapper>

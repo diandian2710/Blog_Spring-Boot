@@ -31,6 +31,8 @@ class BlogApplicationTests {
 
     @Autowired
     AdminRoleMenuMapper adminRoleMenuMapper;
+    @Autowired
+    AdminRolePermissionMapper adminRolePermissionMapper;
     @Test
     void contextLoads() {
         List<Integer> rids = new ArrayList<>();
@@ -81,6 +83,11 @@ class BlogApplicationTests {
         System.out.println(urs);
         int i = adminUserRoleMapper.saveAll(urs);
         System.out.println("==========>>>>"+i);
+    }
+
+    @Test
+    void test4(){
+        adminRolePermissionMapper.deleteAllByRid(9);
     }
 
 }

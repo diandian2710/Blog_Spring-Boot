@@ -15,4 +15,5 @@ public interface AdminRolePermissionMapper {
     List<AdminRolePermission> findAll();
     void deleteAllByRid(@Param("rid") int rid);
     int saveAll(List<AdminRolePermission> rps);
+    int save(AdminRolePermission rp);
 }
