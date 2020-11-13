@@ -3,6 +3,9 @@ package com.wang;
 import com.wang.mapper.*;
 import com.wang.pojo.*;
 import com.wang.service.AdminMenuService;
+import com.wang.service.JotterArticleService;
+import com.wang.utils.PageRequest;
+import com.wang.utils.PageResult;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -88,6 +91,17 @@ class BlogApplicationTests {
     @Test
     void test4(){
         adminRolePermissionMapper.deleteAllByRid(9);
+    }
+
+    @Autowired
+    JotterArticleService jotterArticleService;
+    @Test
+    void test5(){
+        PageRequest pageRequest = new PageRequest();
+        pageRequest.setPageNum(1);
+        pageRequest.setPageSize(1);
+        PageResult page = jotterArticleService.findPage(pageRequest);
+        System.out.println(page);
     }
 
 }

@@ -62,7 +62,7 @@ public class LibraryController {
         if(!f.getParentFile().exists())
             f.getParentFile().mkdir();
         try {
-            file.transferTo(f);
+          file.transferTo(f);
             String imgURL = "http://localhost:8443/api/file/"+f.getName();
             return imgURL;
         } catch (IOException e) {
