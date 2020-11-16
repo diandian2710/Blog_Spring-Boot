@@ -10,12 +10,14 @@ This is a simple front-end and back-end separation project, mainly developed usi
 # The Overall Appearance
 
 ## Index Page
-
+Show the main page
+![main page](https://raw.githubusercontent.com/diandian2710/markdown-photos/main/Blog/main%20page.png)
 
 
 ## Library
 
 Provide book information display function
+![library](https://raw.githubusercontent.com/diandian2710/markdown-photos/main/Blog/library.png)
 
 
 
@@ -24,8 +26,7 @@ Provide book information display function
 ## Admin
 
 Including dashboard, content management, user and permission management, etc.
-![后台](https://img-blog.csdnimg.cn/20191202200516251.png)
-
+![admin](https://raw.githubusercontent.com/diandian2710/markdown-photos/main/Blog/role%20management.png)
 # Architecture Diagram
 
 - **Application Architecture**
@@ -59,12 +60,15 @@ Including dashboard, content management, user and permission management, etc.
 # Update
 
 ## 2020
-11-2 Refactored the project, completed the establishment of the basic background interface, realized loading the menu by role, and cancelled the front desk access restriction  
-10-27 Use the front-end interceptor, migrate the database to mysql 8.0.15, and initialize the background management page  
-10-13 Complete the picture upload function  
-10-11 Complete the book classification function  
-10-08 Complete the book paging function  
-10-06 Complete the book query function  
-10-05 Complete the book modification function  
-10-04 Complete the book deletion function  
-10-03 Complete the new functions of the book  
+10/11/2020 Implement the article section  
+5/11/2020 Deploy Shiro security framework  
+27/10/2020 Refactored the project, completed the establishment of the basic background interface, realized loading the menu by role, and cancelled the front desk access restriction  
+20/10/2020 Use the front-end interceptor, migrate the database to mysql 8.0.15, and initialize the background management page  
+14/10/2020 Fuzzy query in search box  
+13/10/2020 Complete the picture upload function  
+11/10/2020 Complete the book classification function  
+7/10/2020 Complete the book paging function  
+6/10/2020 Complete the book query function  
+5/10/2020 Complete the book modification function  
+4/10/2020 Complete the book deletion function  
+3/10/2020 Complete the new functions of the book  
