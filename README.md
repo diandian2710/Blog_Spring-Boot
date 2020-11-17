@@ -35,6 +35,7 @@ Including dashboard, content management, user and permission management, etc.
 ![Tec_Arc](https://raw.githubusercontent.com/diandian2710/markdown-photos/main/Blog/20201106123909768_600040565.png)
 
 # Database Schema 
+- The database schema include three parts: Book, Article and Admin 
 ![Schema](https://raw.githubusercontent.com/diandian2710/markdown-photos/main/Blog/schema.png)
 # Main Technology Stack
 
