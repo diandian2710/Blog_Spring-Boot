@@ -2,8 +2,8 @@ package com.wang.service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.wang.mapper.JotterArticleMapper;
-import com.wang.pojo.JotterArticle;
+import com.wang.mapper.BlogArticleMapper;
+import com.wang.pojo.BlogArticle;
 import com.wang.utils.PageRequest;
 import com.wang.utils.PageResult;
 import com.wang.utils.PageUtils;
@@ -17,9 +17,9 @@ import java.util.List;
  * @date 2020/1/14 21:00
  */
 @Service
-public class JotterArticleService {
+public class BlogArticleService {
     @Autowired
-    JotterArticleMapper jotterArticleMapper;
+    BlogArticleMapper blogArticleMapper;
 
     public PageResult findPage(PageRequest pageRequest) {
         return PageUtils.getPageResult(pageRequest, getPageInfo(pageRequest));
@@ -28,12 +28,12 @@ public class JotterArticleService {
     /**
      * 调用分页插件完成分页
      */
-    private PageInfo<JotterArticle> getPageInfo(PageRequest pageRequest) {
+    private PageInfo<BlogArticle> getPageInfo(PageRequest pageRequest) {
         int pageNum = pageRequest.getPageNum();
         int pageSize = pageRequest.getPageSize();
         PageHelper.startPage(pageNum, pageSize);
-        List<JotterArticle> jotterArticles = jotterArticleMapper.selectPage();
-        return new PageInfo<JotterArticle>(jotterArticles);
+        List<BlogArticle> blogArticles = blogArticleMapper.selectPage();
+        return new PageInfo<BlogArticle>(blogArticles);
     }
 
 

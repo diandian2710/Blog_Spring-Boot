@@ -19,7 +19,7 @@ import java.sql.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class JotterArticle {
+public class BlogArticle {
     @NotNull(message = "id 不能为 null")
     private int id;
 

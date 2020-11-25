@@ -1,14 +1,11 @@
 package com.wang.controller;
 
-import com.wang.pojo.JotterArticle;
 import com.wang.result.Result;
 import com.wang.result.ResultFactory;
-import com.wang.service.JotterArticleService;
+import com.wang.service.BlogArticleService;
 import com.wang.utils.PageRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
 
 /**
  * Jotter controller.
@@ -17,9 +14,9 @@ import javax.validation.Valid;
  * @date 2020/1/14 20:33
  */
 @RestController
-public class JotterController {
+public class BlogController {
     @Autowired
-    JotterArticleService jotterArticleService;
+    BlogArticleService blogArticleService;
 
 //    @PostMapping("api/admin/content/article")
 //    public Result saveArticle(@RequestBody @Valid JotterArticle article) {
@@ -37,7 +34,7 @@ public class JotterController {
         PageRequest pageRequest = new PageRequest();
         pageRequest.setPageSize(size);
         pageRequest.setPageNum(page);
-        return ResultFactory.buildSuccessResult(jotterArticleService.findPage(pageRequest));
+        return ResultFactory.buildSuccessResult(blogArticleService.findPage(pageRequest));
     }
 
 //    @GetMapping("/api/article/{id}")

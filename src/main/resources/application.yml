@@ -2,8 +2,21 @@ server:
   port: 8443
 
 spring:
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+    password:
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+
+    timeout: 2000
   datasource:
-    url: jdbc:mysql://localhost:3306/white_jotter?useUnicode=true&characterEncoding=utf8&useSSL=true&serverTimezone=UTC
+    url: jdbc:mysql://neil-blog.cknffqbiagb3.ap-southeast-2.rds.amazonaws.com:3306/neil_blog?useUnicode=true&characterEncoding=utf8&useSSL=true&serverTimezone=UTC
     username: root
     password: password
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -29,6 +42,12 @@ spring:
     maxPoolPreparedStatementPerConnectionSize: 20
     useGlobalDataSourceStat: true
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+  data:
+    redis:
+      repositories:
+        enabled: false
+
+
 
 
 
@@ -42,4 +61,5 @@ pagehelper:
   reasonable: true
   support-methods-arguments: true
   params: count=countSql
+
 
