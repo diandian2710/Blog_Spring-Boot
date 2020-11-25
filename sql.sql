@@ -1,38 +1,15 @@
--- MySQL dump 10.13  Distrib 8.0.21, for osx10.15 (x86_64)
---
--- Host: 127.0.0.1    Database: white_jotter
--- ------------------------------------------------------
--- Server version	8.0.21
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8mb4 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Table structure for table `admin_menu`
---
 
 DROP TABLE IF EXISTS `admin_menu`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `admin_menu` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `path` varchar(64) DEFAULT NULL,
-  `name` varchar(64) DEFAULT NULL,
-  `name_zh` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `icon_cls` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `component` varchar(64) DEFAULT NULL,
-  `parent_id` int DEFAULT NULL,
-  PRIMARY KEY (`id`)
+                              `id` int NOT NULL AUTO_INCREMENT,
+                              `path` varchar(64) DEFAULT NULL,
+                              `name` varchar(64) DEFAULT NULL,
+                              `name_zh` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+                              `icon_cls` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+                              `component` varchar(64) DEFAULT NULL,
+                              `parent_id` int DEFAULT NULL,
+                              PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `admin_menu`
@@ -45,16 +22,13 @@ INSERT INTO `admin_menu` VALUES (1,'/admin','AdminIndex','home','el-icon-s-home'
 --
 
 DROP TABLE IF EXISTS `admin_permission`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `admin_permission` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `desc_` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `url` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  PRIMARY KEY (`id`)
+                                    `id` int NOT NULL AUTO_INCREMENT,
+                                    `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+                                    `desc_` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+                                    `url` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+                                    PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `admin_permission`
@@ -67,16 +41,13 @@ INSERT INTO `admin_permission` VALUES (1,'users_management','user management','/
 --
 
 DROP TABLE IF EXISTS `admin_role`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `admin_role` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `name_zh` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `enabled` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+                              `id` int NOT NULL AUTO_INCREMENT,
+                              `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+                              `name_zh` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+                              `enabled` tinyint(1) DEFAULT NULL,
+                              PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `admin_role`
@@ -89,15 +60,12 @@ INSERT INTO `admin_role` VALUES (1,'sysAdmin','sys admin',1),(2,'contentManager'
 --
 
 DROP TABLE IF EXISTS `admin_role_menu`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `admin_role_menu` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `rid` int DEFAULT NULL,
-  `mid` int DEFAULT NULL,
-  PRIMARY KEY (`id`)
+                                   `id` int NOT NULL AUTO_INCREMENT,
+                                   `rid` int DEFAULT NULL,
+                                   `mid` int DEFAULT NULL,
+                                   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=199 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `admin_role_menu`
@@ -110,17 +78,14 @@ INSERT INTO `admin_role_menu` VALUES (19,4,1),(20,4,2),(23,9,1),(24,9,2),(77,2,1
 --
 
 DROP TABLE IF EXISTS `admin_role_permission`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `admin_role_permission` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `rid` int DEFAULT NULL,
-  `pid` int DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_role_permission_role_1` (`rid`),
-  KEY `fk_role_permission_permission_1` (`pid`)
+                                         `id` int NOT NULL AUTO_INCREMENT,
+                                         `rid` int DEFAULT NULL,
+                                         `pid` int DEFAULT NULL,
+                                         PRIMARY KEY (`id`),
+                                         KEY `fk_role_permission_role_1` (`rid`),
+                                         KEY `fk_role_permission_permission_1` (`pid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=140 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `admin_role_permission`
@@ -133,17 +98,14 @@ INSERT INTO `admin_role_permission` VALUES (83,5,3),(97,2,3),(108,1,1),(109,1,2)
 --
 
 DROP TABLE IF EXISTS `admin_user_role`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `admin_user_role` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `uid` int DEFAULT NULL,
-  `rid` int DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_operator_role_operator_1` (`uid`),
-  KEY `fk_operator_role_role_1` (`rid`)
+                                   `id` int NOT NULL AUTO_INCREMENT,
+                                   `uid` int DEFAULT NULL,
+                                   `rid` int DEFAULT NULL,
+                                   PRIMARY KEY (`id`),
+                                   KEY `fk_operator_role_operator_1` (`uid`),
+                                   KEY `fk_operator_role_role_1` (`rid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `admin_user_role`
@@ -156,22 +118,19 @@ INSERT INTO `admin_user_role` VALUES (40,24,2),(63,3,2),(64,1,1),(65,2,3),(66,2,
 --
 
 DROP TABLE IF EXISTS `book`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `book` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `cover` varchar(255) DEFAULT '',
-  `title` varchar(255) NOT NULL DEFAULT '',
-  `author` varchar(255) DEFAULT '',
-  `date` varchar(20) DEFAULT '',
-  `press` varchar(255) DEFAULT '',
-  `abs` varchar(255) DEFAULT NULL,
-  `cid` int DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_book_category_on_cid` (`cid`),
-  CONSTRAINT `fk_book_category_on_cid` FOREIGN KEY (`cid`) REFERENCES `category` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+                        `id` int NOT NULL AUTO_INCREMENT,
+                        `cover` varchar(255) DEFAULT '',
+                        `title` varchar(255) NOT NULL DEFAULT '',
+                        `author` varchar(255) DEFAULT '',
+                        `date` varchar(20) DEFAULT '',
+                        `press` varchar(255) DEFAULT '',
+                        `abs` varchar(255) DEFAULT NULL,
+                        `cid` int DEFAULT NULL,
+                        PRIMARY KEY (`id`),
+                        KEY `fk_book_category_on_cid` (`cid`),
+                        CONSTRAINT `fk_book_category_on_cid` FOREIGN KEY (`cid`) REFERENCES `category` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `book`
@@ -184,14 +143,11 @@ INSERT INTO `book` VALUES (1,'https://i.loli.net/2019/04/10/5cadaa0d0759b.jpg','
 --
 
 DROP TABLE IF EXISTS `category`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `category` (
-  `id` int NOT NULL,
-  `name` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
+                            `id` int NOT NULL,
+                            `name` varchar(255) NOT NULL,
+                            PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `category`
@@ -203,60 +159,46 @@ INSERT INTO `category` VALUES (1,'文学'),(2,'流行'),(3,'文化'),(4,'生活'
 -- Table structure for table `jotter_article`
 --
 
-DROP TABLE IF EXISTS `jotter_article`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `jotter_article` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `article_title` varchar(255) DEFAULT NULL,
-  `article_content_html` longtext CHARACTER SET utf8 COLLATE utf8_general_ci,
-  `article_content_md` longtext CHARACTER SET utf8 COLLATE utf8_general_ci,
-  `article_abstract` varchar(255) DEFAULT NULL,
-  `article_cover` varchar(255) DEFAULT NULL,
-  `article_date` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
+DROP TABLE IF EXISTS `blog_article`;
+CREATE TABLE `blog_article` (
+                                  `id` int NOT NULL AUTO_INCREMENT,
+                                  `article_title` varchar(255) DEFAULT NULL,
+                                  `article_content_html` longtext CHARACTER SET utf8 COLLATE utf8_general_ci,
+                                  `article_content_md` longtext CHARACTER SET utf8 COLLATE utf8_general_ci,
+                                  `article_abstract` varchar(255) DEFAULT NULL,
+                                  `article_cover` varchar(255) DEFAULT NULL,
+                                  `article_date` datetime DEFAULT NULL,
+                                  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `jotter_article`
 --
 
-INSERT INTO `jotter_article` VALUES (1,'凉风有兴','凉风有兴，秋月无边，而我思乡的情绪好比度日如年。虽然我风流倜傥玉树临风，但我还是有聪明的头脑和强健的臂腕。','凉风有兴，秋月无边，而我思乡的情绪好比度日如年。虽然我风流倜傥玉树临风，但我还是有聪明的头脑和强健的臂腕。','凉风有兴，秋月无边，而我思乡的情绪好比度日如年。','https://i.loli.net/2020/01/16/d2ZlKI1WRE4p7XB.png','2020-09-13 21:14:27'),(2,'爱你一万年','<p>曾经有份真挚的爱情摆在我的面前，我没有珍惜，等到失去的时候才后悔莫急，人世间最痛苦的事莫过余此，如果上天在给我一次机会，我会对那个女孩说我爱你，如果要在这份爱上加个期限，我希望是一万年。</p>\n','曾经有份真挚的爱情摆在我的面前，我没有珍惜，等到失去的时候才后悔莫急，人世间最痛苦的事莫过余此，如果上天在给我一次机会，我会对那个女孩说我爱你，如果要在这份爱上加个期限，我希望是一万年。','曾经有份真挚的爱情摆在我的面前，我没有珍惜，等到失去的时候才后悔莫及，人世间最痛苦的事莫过于此。','https://i.loli.net/2020/01/16/DdGBk1R3mj5er6v.png','2020-11-10 00:00:00');
+INSERT INTO `blog_article` VALUES (1,'凉风有兴','凉风有兴，秋月无边，而我思乡的情绪好比度日如年。虽然我风流倜傥玉树临风，但我还是有聪明的头脑和强健的臂腕。','凉风有兴，秋月无边，而我思乡的情绪好比度日如年。虽然我风流倜傥玉树临风，但我还是有聪明的头脑和强健的臂腕。','凉风有兴，秋月无边，而我思乡的情绪好比度日如年。','https://i.loli.net/2020/01/16/d2ZlKI1WRE4p7XB.png','2020-09-13 21:14:27'),(2,'爱你一万年','<p>曾经有份真挚的爱情摆在我的面前，我没有珍惜，等到失去的时候才后悔莫急，人世间最痛苦的事莫过余此，如果上天在给我一次机会，我会对那个女孩说我爱你，如果要在这份爱上加个期限，我希望是一万年。</p>\n','曾经有份真挚的爱情摆在我的面前，我没有珍惜，等到失去的时候才后悔莫急，人世间最痛苦的事莫过余此，如果上天在给我一次机会，我会对那个女孩说我爱你，如果要在这份爱上加个期限，我希望是一万年。','曾经有份真挚的爱情摆在我的面前，我没有珍惜，等到失去的时候才后悔莫及，人世间最痛苦的事莫过于此。','https://i.loli.net/2020/01/16/DdGBk1R3mj5er6v.png','2020-11-10 00:00:00');
 
 --
 -- Table structure for table `user`
 --
 
 DROP TABLE IF EXISTS `user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `username` char(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `salt` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `phone` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `enabled` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+                        `id` int NOT NULL AUTO_INCREMENT,
+                        `username` char(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                        `password` varchar(255) DEFAULT NULL,
+                        `salt` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+                        `name` varchar(255) DEFAULT NULL,
+                        `phone` varchar(255) DEFAULT NULL,
+                        `email` varchar(255) DEFAULT NULL,
+                        `enabled` tinyint(1) DEFAULT NULL,
+                        PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` VALUES (1,'admin','35b9529f89cfb9b848060ca576237e17','8O+vDNr2sI3N82BI31fu1A==','admin','12312312312','evan_nightly@163.com',1),(2,'test','85087738b6c1e1d212683bfafc163853','JBba3j5qRykIPJQYTNNH9A==','test','12312312312','123@123.com',1),(3,'editor','8583a2d965d6159edbf65c82d871fa3e','MZTe7Qwf9QgXBXrZzTIqJQ==','editor',NULL,NULL,1);
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
 -- Dump completed on 2020-11-25 21:39:42
+
+select * from category;
