@@ -6,6 +6,38 @@ This is a simple front-end and back-end separation project, mainly developed usi
 [Front-end](https://github.com/diandian2710/Library_Vue)
 
 
+# how to install the project
+## Back_end
+please enter the project path
+1. package
+
+    ```
+    mvn package
+    ```
+
+2. install
+    ```
+    java -jar target/blog-0.0.1-SNAPSHOT.jar
+    ```
+    if  springboot is running , then we can build Dockerfile
+
+3. Dockerfile
+    ```
+    FROM java:8
+    COPY *.jar /app.jar
+    CMD ["--server.port=8443"]
+    EXPOSE 8080
+    ENTRYPOINT ["java","-jar","/app.jar"]
+    ``` 
+4. build
+    ```
+   mvn package:build
+    ```
+5. run
+    ```
+    docker run -d -p 8
+    ```
+
 
 # The Overall Appearance
 
