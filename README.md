@@ -23,11 +23,10 @@ please enter the project path
 
 3. Dockerfile
     ```
-    FROM java:8
-    COPY *.jar /app.jar
-    CMD ["--server.port=8443"]
-    EXPOSE 8080
-    ENTRYPOINT ["java","-jar","/app.jar"]
+   FROM java:8
+   COPY *.jar /app.jar
+   CMD ["--server.port=8443"]
+   ENTRYPOINT ["java","-jar","/app.jar"]
     ``` 
 4. build
     ```
@@ -35,8 +34,10 @@ please enter the project path
     ```
 5. run
     ```
-    docker run -d -p 8
+    docker run -d -p 8443:8443 springboot/blog
     ```
+ 
+## 
 
 
 # The Overall Appearance

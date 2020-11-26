@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wang.mapper.UserMapper">
     <select id="findByUsername" parameterType="String" resultType="User">
-        select * from white_jotter.user where username=#{username}
+        select * from user where username=#{username}
 <!--        <where>-->
 <!--            <if test="username != null">-->
 <!--                username = #{username};-->
@@ -13,18 +13,29 @@
     </select>
 
     <select id="getByUsernameAndPassword" resultType="User">
-        select * from white_jotter.user where username=#{username} and password=#{password};
+        select * from user where username=#{username} and password=#{password};
     </select>
 
     <update id="addUser" parameterType="User">
-        insert into white_jotter.user(username, password,salt) values (#{username}, #{password},#{salt})
+        insert into user(username, password,salt) values (#{username}, #{password},#{salt})
     </update>
 
     <select id="findAll" resultType="User">
-        select * from white_jotter.user;
+        select * from user;
     </select>
 
+<!--    <update id="save" parameterType="User">-->
+<!--        update user set name=#{name},phone=#{phone}, email=#{email} where id = #{id};-->
+<!--    </update>-->
+
     <update id="save" parameterType="User">
-        update user set name=#{name},phone=#{phone}, email=#{email} where id = #{id};
+        <choose>
+            <when test="id!=null">
+                update user set name=#{name},phone=#{phone}, email=#{email}, username=#{username}, salt=#{salt}, password=#{password}  where id = #{id};
+            </when>
+            <otherwise>
+                insert into user(username, password, salt, name, phone, email) VALUES (#{username},#{password},#{salt},#{name},#{phone},#{email});
+            </otherwise>
+        </choose>
     </update>
 </mapper>

@@ -50,7 +50,7 @@
     <select id="findAllByTitleLikeOrAuthorLike" resultType="Book">
         <bind name="authorPattern" value="'%'+author+'%'"/>
         <bind name="titlePattern" value="'%'+title+'%'"/>
-        select * from white_jotter.book
+        select * from book
         <where>
             <if test="title != null">
                 title like #{titlePattern}

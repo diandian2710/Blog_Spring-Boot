@@ -1,5 +1,6 @@
 package com.wang.controller;
 
+import com.wang.mapper.UserMapper;
 import com.wang.pojo.User;
 import com.wang.result.Result;
 import com.wang.result.ResultFactory;
@@ -24,10 +25,13 @@ public class LoginController {
 
     @Autowired
     UserService userService;
+    @Autowired
+    UserMapper userMapper;
 
     @CrossOrigin
     @PostMapping("/api/login")
     public Result login(@RequestBody User requestUser) {
+        System.out.println("the user is++++======" + requestUser);
         String username = requestUser.getUsername();
         Subject subject = SecurityUtils.getSubject();
 //        subject.getSession().setTimeout(10000);
@@ -35,40 +39,61 @@ public class LoginController {
         usernamePasswordToken.setRememberMe(true);
         try {
             subject.login(usernamePasswordToken);
+            User user = userService.findByUsername(username);
+            if(!user.isEnabled()){
+                return ResultFactory.buildFailResult("This user has been banned");
+            }
             return ResultFactory.buildSuccessResult(username);
-        } catch (AuthenticationException e) {
-            String message = "账号密码错误";
+        } catch (IncorrectCredentialsException e) {
+            String message = " invalid password";
             return ResultFactory.buildFailResult(message);
+        }catch (UnknownAccountException e){
+            return ResultFactory.buildFailResult("this username is not existed");
         }
     }
 
 
 
-    @PostMapping("/api/register")
-    public Result register(@RequestBody User user){
-        String username = user.getUsername();
-        String password = user.getPassword();
-//        对 html 标签进行转义，防止 XSS 攻击
-        username = HtmlUtils.htmlEscape(username);
-        user.setUsername(username);
 
-        boolean exits = userService.isExist(username);
-        if (exits){
-            String message = "用户名已经被占用";
-            return ResultFactory.buildFailResult(message);
-        }
-
-        //生成盐，默认长度16位
-        String salt = new SecureRandomNumberGenerator().nextBytes().toString();
-        //设置hash算法迭代次数
-        int times = 2;
-        //得到 hash后的密码
-        String encodedPassword = new SimpleHash("md5", password, salt, times).toString();
-        user.setSalt(salt);
-        user.setPassword(encodedPassword);
-        userService.add(user);
-        return  ResultFactory.buildSuccessResult(user);
+//    @PostMapping("/api/register")
+//    public Result register(@RequestBody User user){
+//        String username = user.getUsername();
+//        String password = user.getPassword();
+////        对 html 标签进行转义，防止 XSS 攻击
+//        username = HtmlUtils.htmlEscape(username);
+//        user.setUsername(username);
+//
+//        boolean exits = userService.isExist(username);
+//        if (exits){
+//            String message = "用户名已经被占用";
+//            return ResultFactory.buildFailResult(message);
+//        }
+//
+//        //生成盐，默认长度16位
+//        String salt = new SecureRandomNumberGenerator().nextBytes().toString();
+//        //设置hash算法迭代次数
+//        int times = 2;
+//        //得到 hash后的密码
+//        String encodedPassword = new SimpleHash("md5", password, salt, times).toString();
+//        user.setSalt(salt);
+//        user.setPassword(encodedPassword);
+//        userService.add(user);
+//        return  ResultFactory.buildSuccessResult(user);
+//    }
+@PostMapping("/api/register")
+public Result register(@RequestBody User user) {
+    int status = userService.register(user);
+    switch (status) {
+        case 0:
+            return ResultFactory.buildFailResult("用户名和密码不能为空");
+        case 1:
+            return ResultFactory.buildSuccessResult("注册成功");
+        case 2:
+            return ResultFactory.buildFailResult("用户已存在");
     }
+    return ResultFactory.buildFailResult("未知错误");
+}
+
 
     @GetMapping("api/logout")
     public Result logout(){

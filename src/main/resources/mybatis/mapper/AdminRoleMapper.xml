@@ -18,7 +18,7 @@
         </foreach>
     </select>
     <select id="findAll" resultType="AdminRole">
-        select * from white_jotter.admin_role;
+        select * from admin_role;
     </select>
     <update id="save" parameterType="AdminRole">
         <choose>
