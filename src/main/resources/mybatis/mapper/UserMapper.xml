@@ -30,7 +30,7 @@
 
     <update id="save" parameterType="User">
         <choose>
-            <when test="id!=null">
+            <when test="id != 0">
                 update user set name=#{name},phone=#{phone}, email=#{email}, username=#{username}, salt=#{salt}, password=#{password}  where id = #{id};
             </when>
             <otherwise>

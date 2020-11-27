@@ -80,11 +80,9 @@ public class UserService {
         }
 
         boolean exist = isExist(username);
-
         if (exist) {
             return 2;
         }
-
         // 默认生成 16 位盐
         String salt = new SecureRandomNumberGenerator().nextBytes().toString();
         int times = 2;
@@ -92,6 +90,8 @@ public class UserService {
 
         user.setSalt(salt);
         user.setPassword(encodedPassword);
+
+        System.out.println("the user is =============>"+user);
 
         userMapper.save(user);
 
