@@ -25,7 +25,6 @@ public class AdminRolePermissionService {
 
     @Transactional
     public void savePermChanges(int rid, List<AdminPermission> perms){
-        System.out.println("the perms========+++++++++"+perms);
         adminRolePermissionMapper.deleteAllByRid(rid);
         ArrayList<AdminRolePermission> rps = new ArrayList<>();
         if (!perms.isEmpty()){

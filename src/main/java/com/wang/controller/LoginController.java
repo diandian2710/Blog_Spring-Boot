@@ -54,32 +54,6 @@ public class LoginController {
 
 
 
-
-//    @PostMapping("/api/register")
-//    public Result register(@RequestBody User user){
-//        String username = user.getUsername();
-//        String password = user.getPassword();
-////        对 html 标签进行转义，防止 XSS 攻击
-//        username = HtmlUtils.htmlEscape(username);
-//        user.setUsername(username);
-//
-//        boolean exits = userService.isExist(username);
-//        if (exits){
-//            String message = "用户名已经被占用";
-//            return ResultFactory.buildFailResult(message);
-//        }
-//
-//        //生成盐，默认长度16位
-//        String salt = new SecureRandomNumberGenerator().nextBytes().toString();
-//        //设置hash算法迭代次数
-//        int times = 2;
-//        //得到 hash后的密码
-//        String encodedPassword = new SimpleHash("md5", password, salt, times).toString();
-//        user.setSalt(salt);
-//        user.setPassword(encodedPassword);
-//        userService.add(user);
-//        return  ResultFactory.buildSuccessResult(user);
-//    }
 @PostMapping("/api/register")
 public Result register(@RequestBody User user) {
     int status = userService.register(user);

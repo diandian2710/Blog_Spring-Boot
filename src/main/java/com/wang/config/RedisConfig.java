@@ -1,4 +1,4 @@
-package com.gm.wj.config;
+package com.wang.config;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;

@@ -47,7 +47,6 @@ public class RoleController {
 
     @PutMapping("/api/admin/role")
     public Result editRole(@RequestBody AdminRole requestRole) {
-        System.out.println(requestRole);
         adminRoleService.addOrUpdate(requestRole);
         adminRolePermissionService.savePermChanges(requestRole.getId(), requestRole.getPerms());
         String message = "修改角色信息成功";
@@ -56,7 +55,6 @@ public class RoleController {
 
     @PutMapping("/api/admin/role/menu")
     public Result updateRoleMenu(@RequestParam int rid, @RequestBody Map<String, List<Integer>> menusIds) {
-        System.out.println(menusIds);
         adminRoleMenuService.updateRoleMenu(rid, menusIds);
         return ResultFactory.buildSuccessResult("更新成功");
     }

@@ -7,7 +7,7 @@ This is a simple front-end and back-end separation project, mainly developed usi
 
 
 # how to install the project
-## Back_end
+### Back-end
 please enter the project path
 1. package
 
@@ -19,24 +19,11 @@ please enter the project path
     ```
     java -jar target/blog-0.0.1-SNAPSHOT.jar
     ```
-    if  springboot is running , then we can build Dockerfile
-
-3. Dockerfile
-    ```
-   FROM java:8
-   COPY *.jar /app.jar
-   CMD ["--server.port=8443"]
-   ENTRYPOINT ["java","-jar","/app.jar"]
-    ``` 
-4. build
-    ```
-   mvn package:build
-    ```
-5. run
-    ```
-    docker run -d -p 8443:8443 springboot/blog
-    ```
- 
+### Front-end
+please enter the project path
+```
+npm run dev
+```
 ## 
 
 

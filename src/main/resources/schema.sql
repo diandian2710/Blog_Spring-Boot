@@ -122,7 +122,7 @@ CREATE TABLE `category` (
 -- ----------------------------
 -- Table structure for jotter_article
 -- ----------------------------
-DROP TABLE IF EXISTS `jotter_article`;
+DROP TABLE IF EXISTS blog_article;
 CREATE TABLE `jotter_article` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `article_title` varchar(255) DEFAULT NULL,

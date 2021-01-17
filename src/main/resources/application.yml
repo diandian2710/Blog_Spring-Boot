@@ -16,7 +16,7 @@ spring:
 
     timeout: 2000
   datasource:
-    url: jdbc:mysql://neil-blog.cknffqbiagb3.ap-southeast-2.rds.amazonaws.com:3306/neil_blog?useUnicode=true&characterEncoding=utf8&useSSL=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/white_jotter?useUnicode=true&characterEncoding=utf8&useSSL=true&serverTimezone=UTC
     username: root
     password: password
     driver-class-name: com.mysql.cj.jdbc.Driver
