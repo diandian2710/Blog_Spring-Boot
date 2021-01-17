@@ -1,30 +1,37 @@
-This is a simple front-end and back-end separation project, mainly developed using Vue.js + SpringBoot technology stack.
-
+# This Blog is a SPA project mainly uses Vue.js, SpringBoot, MySQL technology stack.
 
 [Back-end](https://github.com/diandian2710/Library_Spring-Boot)
 
 [Front-end](https://github.com/diandian2710/Library_Vue)
 
 
-# how to install the project
+## how to install the project
 ### Back-end
-please enter the project path
-1. package
+1. clone repo
+    ```
+    git clone https://github.com/diandian2710/Blog_Spring-Boot.git
+    ```
+2. package
 
     ```
     mvn package
     ```
 
-2. install
+3. install
     ```
     java -jar target/blog-0.0.1-SNAPSHOT.jar
     ```
 ### Front-end
 please enter the project path
-```
-npm run dev
-```
-## 
+
+1. clone repo
+    ```
+    git clone https://github.com/diandian2710/Library_Vue.git
+    ```
+2. install
+    ```
+    npm run dev
+    ```
 
 
 # The Overall Appearance
