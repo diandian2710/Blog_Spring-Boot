@@ -1,4 +1,4 @@
-# This Blog is a SPA project mainly useing Vue.js, SpringBoot, MySQL technology stack.
+# This Blog is a SPA project mainly using Vue.js, SpringBoot, MySQL technology stack.
 
 [Back-end](https://github.com/diandian2710/Library_Spring-Boot)
 
